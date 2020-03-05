@@ -1,5 +1,5 @@
 # 2048-on-FPGA
-Contributers: Jingnong Qu, Jingwu Zhang, Di Wu
+Contributers: Jingnong Qu, Jingwu Zhang, Di Wu<br />
 ---Project Proposal---<br />
 Overview<br />
 In this project, we will design a 2048 game and implement it on the FPGA board. 2048 is a popular single player grid-based strategy game. In the game, a player can only shift all the blocks to a certain direction (up, down, left, or right). In our design, the user will use four buttons to control the shifting direction. Switches and buttons will also be used for resetting the game or selecting the difficulty level.<br />
