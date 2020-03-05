@@ -2,6 +2,7 @@
 This repository contains our final project for CS M152A at UCLA.<br />
 The project is implemented with Verilog, mapped on a Xilinx Nexys3 FPGA.<br />
 Contributers: Jingnong Qu, Di Wu, Jingwu Zhang<br />
+
 ---Project Proposal---<br />
 Overview<br />
 In this project, we will design a 2048 game and implement it on the FPGA board. 2048 is a popular single player grid-based strategy game. In the game, a player can only shift all the blocks to a certain direction (up, down, left, or right). In our design, the user will use four buttons to control the shifting direction. Switches and buttons will also be used for resetting the game or selecting the difficulty level.<br />
