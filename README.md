@@ -1,4 +1,6 @@
 # 2048-on-FPGA
+This repository contains our final project for CS M152A at UCLA.<br />
+The project is implemented with Verilog, mapped on a Xilinx Nexys3 FPGA.
 Contributers: Jingnong Qu, Jingwu Zhang, Di Wu<br />
 ---Project Proposal---<br />
 Overview<br />
