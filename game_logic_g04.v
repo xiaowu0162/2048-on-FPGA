@@ -15,11 +15,13 @@ output reg [block_size-1:0] max;
 output o_valid;
 
 // state machine
-reg [1:0] state;
-parameter S_init = 2'd0;
-parameter S_merge = 2'd1;
-parameter S_shift = 2'd2;
-parameter S_gen = 2'd3;
+reg [2:0] state;
+parameter S_init = 3'd0;
+parameter S_merge = 3'd1;
+parameter S_shift = 3'd2;
+parameter S_gen = 3'd3;
+parameter S_output = 3'd4;
+
 
 reg win, lose, merge_success;
 reg [15:0] bmap;   // data bitmap
@@ -30,8 +32,8 @@ parameter second = 35;
 parameter third = 23;
 parameter fourth = 11;
 
-
-assign o_valid = i_valid & ~i_tx_busy;
+//assign o_valid = (i_valid ) & ~i_tx_busy;
+assign o_valid = (state[2:0] == S_output) & ~i_tx_busy;
 
 reg new_clk_500hz;
 reg [17:0] clk_500hz_counter;
@@ -273,12 +275,14 @@ begin
 	begin
 		state <= S_gen;
 	end
-	else if ((state[1:0] == S_init) & (btnD | btnL | btnR | btnU) & new_clk_500hz & ~lose & ~win)
+	else if (state[2:0] == S_output)
+		state <= S_init;
+	else if ((state[2:0] == S_init) & (btnD | btnL | btnR | btnU) & new_clk_500hz & ~lose & ~win)
     begin
 		state <= S_merge;
         ctrl <= {btnU, btnD, btnL, btnR};
     end
-	else if (!(state[1:0] == S_init))
+	else if (!(state[2:0] == S_init))
 		state <= state + 1;
 end
 

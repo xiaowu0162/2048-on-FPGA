@@ -161,6 +161,22 @@ module uart_top (/*AUTOARG*/
 					case (line_state)
 					stCR:
 						begin
+							top_state <= stLine4;
+							line_state <= stField1_1;
+						end 
+					default: 
+						begin
+							top_state <= top_state;
+							line_state <= line_state + 1;
+						end
+					endcase    // case (line_state)
+				end
+			stLine4:
+				if (~tfifo_full)
+				begin
+					case (line_state)
+					stCR:
+						begin
 							top_state <= stIdle;
 							line_state <= stField1_1;
 						end 
@@ -429,6 +445,10 @@ module uart_top (/*AUTOARG*/
 				stNL: 			tfifo_in = "\n";
 				stCR:			tfifo_in = "\r";
 			endcase   // case (line_state)
+			
+			stLine4: 
+				//tfifo_in = "H";
+				tfifo_in = "\0";
 	endcase  // case (top_state)
    end
    

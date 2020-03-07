@@ -14,6 +14,7 @@ parameter stLine2 = 11;
 parameter stData3 = 12;
 parameter stLine3 = 13;
 parameter stData4 = 14;
+parameter stLine4 = 15;
 
 // states for line_state
 parameter stField1_1 = 0;
